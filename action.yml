@@ -1,0 +1,27 @@
+name: 'DITA-OT Unit Test Action'
+description: 'Run the unit-test plugin'
+inputs:
+  plugin:
+    description: 'The name of the DITA-OT plugin to install and test'
+    required: true
+  prerequisites:
+    description: 'Comma separated list of additional DITA-OT plugins to install prior to installing the plugin under test.'
+    required: false
+  setup-script:
+    description: 'A bash script to run to install any other runtime dependencies'
+    required: false
+    default: 'test-setup.sh'
+branding:
+  icon: 'search'  
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.plugin }}
+    - ${{ inputs.prerequisites }}
+    - ${{ inputs.setup-script }}
+
+
+
+
