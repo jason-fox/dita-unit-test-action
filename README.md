@@ -4,6 +4,10 @@ This action installs and instruments a DITA-OT Plugin and then runs a supplied s
 
 ## Inputs
 
+### `dita-ot-version`
+
+The version of DITA-OT to use. Defaults to `3.5.4`
+
 ### `plugin`
 
 **Required** The name of the DITA-OT plugin to install and test.
@@ -16,12 +20,22 @@ The name of a bash script to run to install any dependencies prior to run the te
 
 Comma separated list of additional DITA-OT plugins to install prior to installing the plugin under test.
 
+### `plugin`
+
+**Required** The name of the DITA-OT plugin to install and test.
+
+
+if `COVERALLS_TOKEN` is added as an ENV coverage results are pushed to [Coveralls](https://coveralls.io/).
+
 ## Example usage
 
 ```yaml
 uses: jason-fox/dita-unit-test-action@master
 with:
-  plugin: 'fox.jason.prismjs'
-  setup-script: 'startup.sh'
-  prerequisites: 'org.doctales.xmltask,fox.jason.extend.css'
+    dita-ot-version: 3.5.4
+    plugin: 'fox.jason.prismjs'
+    setup-script: 'startup.sh'
+    prerequisites: 'org.doctales.xmltask,fox.jason.extend.css'
+env:
+    COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
 ```

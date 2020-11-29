@@ -1,6 +1,10 @@
 name: 'DITA-OT Unit Test Action'
 description: 'Run the unit-test plugin'
 inputs:
+  dita-ot-version:
+    description: 'The version of DITA-OT to use'
+    required: false
+    default: '3.5.4'
   plugin:
     description: 'The name of the DITA-OT plugin to install and test'
     required: true
@@ -18,10 +22,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.dita-ot-version }}
     - ${{ inputs.plugin }}
     - ${{ inputs.prerequisites }}
     - ${{ inputs.setup-script }}
-
-
-
-
