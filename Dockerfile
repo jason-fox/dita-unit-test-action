@@ -6,7 +6,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-    apt-get install -y default-jdk maven ant curl unzip git && \
+    apt-get install -y default-jdk maven ant curl unzip git locales && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
