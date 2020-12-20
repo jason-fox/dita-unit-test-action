@@ -7,8 +7,14 @@ FROM ubuntu:18.04
 
 RUN apt-get update && \
     apt-get install -y default-jdk maven ant curl unzip git locales && \
+    dpkg-reconfigure --frontend noninteractive locales && \
+    locale-gen en_US.UTF-8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8 
 
 WORKDIR /opt/app/bin/
 COPY entrypoint.sh entrypoint.sh
