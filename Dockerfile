@@ -3,10 +3,10 @@
 # This file is part of the DITA-OT Unit Test Plug-in project.
 # See the accompanying LICENSE file for applicable licenses.
 
-FROM maven:3.6.3-jdk-11-slim 
+FROM ubuntu:18.04
 
 RUN apt-get update && \
-    apt-get install -y curl unzip git && \
+    apt-get install -y default-jdk maven ant curl unzip git && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
