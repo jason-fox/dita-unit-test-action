@@ -21,7 +21,7 @@ chmod 755 dita-ot-"${DITA_OT_VERSION}"/bin/dita
 
 PATH="${PATH}":/opt/app/bin/dita-ot-"${DITA_OT_VERSION}"/bin
 
-echo -e "\x1B[01;96m Installling DITA-OT Unit Test Harness \x1B[0m\n"
+echo "[INFO] Installling DITA-OT Unit Test Harness"
 dita --install
 dita --install \
 	https://github.com/doctales/org.doctales.xmltask/archive/master.zip
@@ -29,12 +29,12 @@ dita --install \
 	https://github.com/jason-fox/fox.jason.unit-test/archive/master.zip
 
 if [ -f "$FILE" ]; then
-	echo -e "\x1B[01;96m Installling additional runtime dependencies \x1B[0m\n"
+	echo "[INFO] Installling additional runtime dependencies"
 	"${FILE}"
 fi
 
 if [ ! -z "${PREREQUISITES}" ]; then 
-	echo -e "\x1B[01;96m Installling prequisite DITA-OT plugins \x1B[0m\n"
+	echo "[INFO] Installling prequisite DITA-OT plugins"
 	list=$(echo "$PREREQUISITES" | tr "," "\n")
 	for prereq in $list
 	do
@@ -48,17 +48,17 @@ if [ -z "${PLUGIN}"  ]; then
 else
 	cp -r /github/workspace dita-ot-"${DITA_OT_VERSION}"/plugins/"${PLUGIN}"
 	dita --install
-	echo -e "\n\x1B[01;96m Instrumenting ${PLUGIN} plugin \x1B[0m\n"
+	echo "[INFO] Instrumenting ${PLUGIN} plugin"
 	dita --input dita-ot-"${DITA_OT_VERSION}"/plugins/"${PLUGIN}" -f xsl-instrument
-	echo -e "\n\x1B[01;96m Testing ${PLUGIN} plugin \x1B[0m\n"
+	echo "[INFO] Testing ${PLUGIN} plugin"
 	dita --input dita-ot-"${DITA_OT_VERSION}"/plugins/"${PLUGIN}" -f unit-test -o /github/workspace -v
 	if [ ! -z "${COVERALLS_TOKEN}" ]; then 
-		echo -e "\n\x1B[01;96m Uploading Coverage report to coveralls \x1B[0m\n"
+		echo "[INFO] Uploading Coverage report to coveralls"
 		cd /tmp
 		git clone "${GITHUB_SERVER_URL}"/"${GITHUB_REPOSITORY}"
 		cd "${GITHUB_REPOSITORY##*/}"
 		cp /github/workspace/coverage.xml coverage.xml
 		cp /opt/app/bin/dita-ot-"${DITA_OT_VERSION}"/plugins/fox.jason.unit-test/resource/pom.xml pom.xml
-		mvn -q org.eluder.coveralls:coveralls-maven-plugin:report -DrepoToken="${COVERALLS_TOKEN}"
+		/opt/apache-maven-3.6.3/bin/mvn -q org.eluder.coveralls:coveralls-maven-plugin:report -DrepoToken="${COVERALLS_TOKEN}"
 	fi
 fi
