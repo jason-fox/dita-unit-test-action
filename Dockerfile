@@ -5,8 +5,10 @@
 
 FROM ubuntu:20.04
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 RUN apt-get update && \
-    apt-get install -y openjdk-11-jre maven ant curl unzip git locales && \
+    apt-get install -y --no-install-recommends openjdk-11-jre maven ant curl unzip git locales && \
     dpkg-reconfigure --frontend noninteractive locales && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
