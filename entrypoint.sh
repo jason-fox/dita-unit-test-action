@@ -21,7 +21,7 @@ chmod 755 dita-ot-"${DITA_OT_VERSION}"/bin/dita
 
 PATH="${PATH}":/opt/app/bin/dita-ot-"${DITA_OT_VERSION}"/bin
 
-echo "[INFO] Installling DITA-OT Unit Test Harness"
+echo "[INFO] Installing DITA-OT Unit Test Harness"
 dita --install
 dita --install \
 	https://github.com/doctales/org.doctales.xmltask/archive/master.zip
@@ -29,12 +29,12 @@ dita --install \
 	https://github.com/jason-fox/fox.jason.unit-test/archive/master.zip
 
 if [ -f "$FILE" ]; then
-	echo "[INFO] Installling additional runtime dependencies"
+	echo "[INFO] Installing additional runtime dependencies"
 	"${FILE}"
 fi
 
 if [ ! -z "${PREREQUISITES}" ]; then 
-	echo "[INFO] Installling prequisite DITA-OT plugins"
+	echo "[INFO] Installing prequisite DITA-OT plugins"
 	list=$(echo "$PREREQUISITES" | tr "," "\n")
 	for prereq in $list
 	do
