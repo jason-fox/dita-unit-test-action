@@ -6,7 +6,7 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && \
-    apt-get install -y default-jdk maven ant curl unzip git locales && \
+    apt-get install -y openjdk-11-jre maven ant curl unzip git locales && \
     dpkg-reconfigure --frontend noninteractive locales && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
