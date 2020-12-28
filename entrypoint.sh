@@ -1,13 +1,11 @@
 #! /bin/sh
 
-# This file is part of the DITA-OT Unit Test Plug-in project.
+# This file is part of the DITA-OT Unit Test GitHub Action project.
 # See the accompanying LICENSE file for applicable licenses.
-
-#!/bin/bash
 
 set -e
 
-DITA_OT_VERSION="${1:-3.5.4}"
+DITA_OT_VERSION="${1:-3.6}"
 PLUGIN="${2}"
 PREREQUISITES="${3}"
 SETUP_SCRIPT="${4:-test-setup.sh}"

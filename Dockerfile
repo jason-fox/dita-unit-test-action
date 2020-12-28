@@ -1,6 +1,6 @@
 #! /bin/sh
 
-# This file is part of the DITA-OT Unit Test Plug-in project.
+# This file is part of the DITA-OT Unit Test GitHub Action project.
 # See the accompanying LICENSE file for applicable licenses.
 
 FROM ubuntu:20.04

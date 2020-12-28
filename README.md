@@ -6,7 +6,7 @@ This action installs and instruments a DITA-OT Plugin and then runs a supplied s
 
 ### `dita-ot-version`
 
-The version of DITA-OT to use. Defaults to `3.5.4`
+The version of DITA-OT to use. Defaults to `3.6`
 
 ### `plugin`
 
@@ -24,8 +24,7 @@ Comma separated list of additional DITA-OT plugins to install prior to installin
 
 **Required** The name of the DITA-OT plugin to install and test.
 
-
-if `COVERALLS_TOKEN` is added as an ENV coverage results are pushed to [Coveralls](https://coveralls.io/).
+if `COVERALLS_TOKEN` is added as an ENV, coverage results are pushed to [Coveralls](https://coveralls.io/).
 
 ## Example usage
 
@@ -39,3 +38,7 @@ with:
 env:
     COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
 ```
+
+## License
+
+The scripts and documentation in this project are released under the [MIT License](LICENSE)
