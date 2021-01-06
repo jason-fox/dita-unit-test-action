@@ -4,7 +4,6 @@ inputs:
   dita-ot-version:
     description: 'The version of DITA-OT to use'
     required: false
-    default: '3.6'
   plugin:
     description: 'The name of the DITA-OT plugin to install and test'
     required: true
