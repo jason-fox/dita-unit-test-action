@@ -70,6 +70,7 @@ else
 		cd "${GITHUB_REPOSITORY##*/}"
 		cp /github/workspace/coverage.xml coverage.xml
 		cp /opt/app/plugins/fox.jason.unit-test/resource/pom.xml pom.xml
+		cp /opt/app/plugins/"${PLUGIN}"/*.xml .
 		/opt/apache-maven-3.6.3/bin/mvn -q org.eluder.coveralls:coveralls-maven-plugin:report -DrepoToken="${COVERALLS_TOKEN}"
 	fi
 fi
