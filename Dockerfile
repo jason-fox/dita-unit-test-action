@@ -21,7 +21,7 @@ RUN chmod +x /entrypoint.sh && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    curl -O https://apachemirror.wuchna.com/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
+    curl -O https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
     tar -zxvf apache-maven-3.6.3-bin.tar.gz && \
 	mv apache-maven-3.6.3 /opt/apache-maven-3.6.3 && \
 	export PATH=/opt/apache-maven-3.6.3/bin:$PATH && \
