@@ -6,7 +6,7 @@ This action installs and instruments a DITA-OT Plugin and then runs a supplied s
 
 ### `dita-ot-version`
 
-The version of DITA-OT to use. Defaults to `3.6`
+The version of DITA-OT to use. Defaults to `3.7.2`
 
 ### `plugin`
 
@@ -31,7 +31,7 @@ if `COVERALLS_TOKEN` is added as an ENV, coverage results are pushed to [Coveral
 ```yaml
 uses: jason-fox/dita-unit-test-action@master
 with:
-    dita-ot-version: 3.5.4
+    dita-ot-version: 3.7.2
     plugin: 'fox.jason.prismjs'
     setup-script: 'startup.sh'
     prerequisites: 'org.doctales.xmltask,fox.jason.extend.css'
