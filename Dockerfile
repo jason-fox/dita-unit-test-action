@@ -23,7 +23,7 @@ RUN chmod +x /entrypoint.sh && \
     rm -rf /var/lib/apt/lists/* && \
     curl -O https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.9.3-bin.tar.gz && \
 	tar -zxvf apache-maven-3.9.3-bin.tar.gz && \
-	mv apache-maven-3.6.3 /opt/apache-maven-3.6.3 && \
+	mv apache-maven-3.9.3 /opt/apache-maven-3.9.3 && \
 	export PATH=/opt/apache-maven-3.6.3/bin:$PATH && \
 	rm apache-maven-3.9.3-bin.tar.gz
 
