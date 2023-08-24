@@ -68,6 +68,7 @@ else
 		cd /tmp
 		git clone "${GITHUB_SERVER_URL}"/"${GITHUB_REPOSITORY}"
 		cd "${GITHUB_REPOSITORY##*/}"
+                echo "[INFO] ${PWD}"
 		cp /opt/app/plugins/"${PLUGIN}"/*.xml .
 		cp /github/workspace/coverage.xml coverage.xml
 		cp /opt/app/plugins/fox.jason.unit-test/resource/pom.xml pom.xml
