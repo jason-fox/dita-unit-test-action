@@ -6,7 +6,7 @@ This action installs and instruments a DITA-OT Plugin and then runs a supplied s
 
 ### `dita-ot-version`
 
-The version of DITA-OT to use. Defaults to `4.1`
+The version of DITA-OT to use. Defaults to `4.1.1`
 
 ### `plugin`
 
