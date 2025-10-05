@@ -21,11 +21,11 @@ RUN chmod +x /entrypoint.sh && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    curl -O https://downloads.apache.org/maven/maven-3/3.9.4/binaries/apache-maven-3.9.4-bin.tar.gz && \
-	tar -zxvf apache-maven-3.9.4-bin.tar.gz && \
-	mv apache-maven-3.9.4 /opt/apache-maven-3.9.4 && \
-	export PATH=/opt/apache-maven-3.9.4/bin:$PATH && \
-	rm apache-maven-3.9.4-bin.tar.gz
+    curl -O https://downloads.apache.org/maven/maven-3/3.9.11/binaries/apache-maven-3.9.11-bin.tar.gz && \
+	tar -zxvf apache-maven-3.9.11-bin.tar.gz && \
+	mv apache-maven-3.9.11 /opt/apache-maven-3.9.11 && \
+	export PATH=/opt/apache-maven-3.9.11/bin:$PATH && \
+	rm apache-maven-3.9.11-bin.tar.gz
 
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
