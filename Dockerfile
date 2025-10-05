@@ -22,7 +22,7 @@ COPY entrypoint.sh entrypoint.sh
 RUN chmod +x /entrypoint.sh && \
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
-    apt-get install -y --no-install-recommends ant git locales curl && \
+    apt-get install -y --no-install-recommends ant git locales curl unzip && \
     ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime && \
     dpkg-reconfigure --frontend noninteractive locales tzdata && \
     locale-gen en_US.UTF-8 && \
