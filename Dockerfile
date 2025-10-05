@@ -3,9 +3,16 @@
 # This file is part of the DITA-OT Unit Test GitHub Action project.
 # See the accompanying LICENSE file for applicable licenses.
 
-FROM ghcr.io/dita-ot/dita-ot:4.3 AS DITA_OT
-
+FROM debian:12.11-slim AS dita-ot
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+ENV JAVA_HOME=/opt/java/openjdk
+COPY --from=eclipse-temurin:21 $JAVA_HOME $JAVA_HOME
+ENV PATH="${JAVA_HOME}/bin:${PATH}"
+
+ENV DITA_HOME=/opt/app
+ENV PATH=${PATH}:${DITA_HOME}/bin
+COPY --from=ghcr.io/dita-ot/dita-ot:4.3.3 $DITA_HOME $DITA_HOME
 
 USER root
 WORKDIR /
