@@ -12,7 +12,7 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}"
 
 ENV DITA_HOME=/opt/app
 ENV PATH=${PATH}:${DITA_HOME}/bin
-COPY --from=ghcr.io/dita-ot/dita-ot:4.3.3 $DITA_HOME $DITA_HOME
+COPY --from=ghcr.io/dita-ot/dita-ot:4.4.1 $DITA_HOME $DITA_HOME
 
 USER root
 WORKDIR /
@@ -28,11 +28,11 @@ RUN chmod +x /entrypoint.sh && \
     locale-gen en_US.UTF-8 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-    curl -O https://downloads.apache.org/maven/maven-3/3.9.14/binaries/apache-maven-3.9.14-bin.tar.gz && \
-	tar -zxvf apache-maven-3.9.14-bin.tar.gz && \
-	mv apache-maven-3.9.14 /opt/apache-maven-3.9.14 && \
+    curl -O https://downloads.apache.org/maven/maven-3/3.9.16/binaries/apache-maven-3.9.16-bin.tar.gz && \
+	tar -zxvf apache-maven-3.9.16-bin.tar.gz && \
+	mv apache-maven-3.9.16 /opt/apache-maven-3.9.16 && \
 	export PATH=/opt/apache-maven-3.9.14/bin:$PATH && \
-	rm apache-maven-3.9.14-bin.tar.gz
+	rm apache-maven-3.9.16-bin.tar.gz
 
 ENV LANG en_US.UTF-8  
 ENV LANGUAGE en_US:en  
